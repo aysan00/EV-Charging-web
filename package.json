@@ -1,15 +1,23 @@
 {
-  "name": "ev-charging-web",
+  "name": "creating-registration-and-login-form-in-nodejs-and-mongodb",
   "version": "1.0.0",
-  "description": "This Project is a web application for ev charging",
-  "main": "script.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "description": "This is a user login and registration app using Node.js, Express, Mongoose and express-sessions. ",
+  "main": "server.js",
   "dependencies": {
-    "express": "^4.19.1"
+    "clean": "^4.0.2",
+    "connect-mongo": "^3.0.0",
+    "ejs": "^3.0.1",
+    "express": "^4.19.1",
+    "express-session": "^1.16.2",
+    "mongodb": "^6.5.0",
+    "mongoose": "^5.13.22"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.0"
   }
 }
