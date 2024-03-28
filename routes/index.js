@@ -33,6 +33,11 @@ router.post('/', function(req, res, next) {
 							unique_id:c,
 							email:personInfo.email,
 							username: personInfo.username,
+							veichleNumber: personInfo.veichleNumber,
+							betteryCapacity: personInfo.betteryCapacity,
+							ageOfVeichle: personInfo.ageOfVeichle,
+							veichleModelName: personInfo.veichleModelName,
+                            driversId: personInfo.driversId,
 							password: personInfo.password,
 							passwordConf: personInfo.passwordConf
 						});

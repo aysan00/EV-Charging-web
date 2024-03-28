@@ -1,15 +1,88 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Welcome</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-	</script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="./css/main.css">
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Charging Dashboard</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(https://promwad.com/sites/default/files/charging-background.png);
+            background-size: 100% 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .left {
+            flex: 1;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .right {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .pie {
+            --w:150px;
+            
+            width: var(--w);
+            aspect-ratio: 1;
+            position: relative;
+            display: inline-grid;
+            place-content: center;
+            margin: 5px;
+            font-size: 25px;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+        .pie:before {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            inset: 0;
+            background: conic-gradient(var(--c) calc(var(--p)*1%),#0000 0);
+            -webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+                    mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+        }
+
+        .button {
+            width: 150px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-	<div class="col-md-4 col-md-offset-4">
+	<!-- <div class="col-md-4 col-md-offset-4">
 		<div>
 			<p>EV Charging Web</p>
 			<p>Profile Detail</p>
@@ -25,6 +98,19 @@
 		<div class="abc">
 			<a href="/logout">Logout</a>
 		</div>
-	</div>
+	</div> -->
+	
+	 <div class="container">
+        <div class="left">
+            <div class="pie" style="--p:60;--b:10px;--c:purple;">60%</div>
+            <p>&emsp;&emsp;&ensp;Battery SoC</p>
+        </div>
+        <div class="right">
+            <button class="button">My Vehicle</button>
+            <button class="button">Slot Booking</button>
+            <button class="button">My Booking</button>
+            <button class="button">Settings</button>
+        </div>
+    </div>
 </body>
 </html>
