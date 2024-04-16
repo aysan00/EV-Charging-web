@@ -146,4 +146,8 @@ router.post('/forgetpass', function (req, res, next) {
 	
 });
 
+router.get('/map', function (req, res, next) {
+	res.render("map.ejs");
+});
+
 module.exports = router;
