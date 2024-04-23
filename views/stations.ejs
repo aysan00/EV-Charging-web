@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charging Stations</title>
+  <style>
+    .station-box {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Charging Stations</h1>
+  <% const chargingStations = [
+    { name: 'Station A', distance: 2.5, areaName: 'Admin Office' },
+    { name: 'Station B', distance: 4.3, areaName: 'Shopping Complex' },
+    { name: 'Station C', distance: 1.8, areaName: 'Student Corner' },
+    { name: 'Station D', distance: 3.7, areaName: 'Mig' },
+    { name: 'Station E', distance: 5.2, areaName: 'Thuvakudi' },
+    { name: 'Station F', distance: 6.1, areaName: 'Amber Hostel' },
+    { name: 'Station G', distance: 2.9, areaName: 'Opal' },
+    { name: 'Station H', distance: 4.5, areaName: 'Temple' },
+    { name: 'Station I', distance: 3.3, areaName: 'Ceesat' },
+    { name: 'Station J', distance: 1.2, areaName: 'GJCH' }
+  ]; %>
+  <% chargingStations.forEach(station => { %>
+    <div class="station-box">
+        <a href="/station-details?name=<%= station.name %>&distance=<%= station.distance %>&area=<%= station.areaName %>&details=<%= station.details %>">
+          <h2><%= station.name %></h2>
+        </a>
+        <p><strong>Distance:</strong> <%= station.distance %> miles</p>
+        <p><strong>Area:</strong> <%= station.areaName %></p>
+      </div>
+  <% }) %>
+</body>
+</html>

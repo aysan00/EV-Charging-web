@@ -150,4 +150,20 @@ router.get('/map', function (req, res, next) {
 	res.render("map.ejs");
 });
 
+router.get('/stations', function (req, res, next) {
+	res.render("stations.ejs");
+});
+
+// router.get('/station', function (req, res, next) {
+// 	res.render("station.ejs");
+// });
+
+app.get('/station-details', (req, res) => {
+	// Construct the map link (replace with actual link)
+	const mapLink = 'https://www.google.com/maps/';
+  
+	// Render the station details template and pass the map link as a variable
+	res.render('stationDetails', { mapLink });
+  });
+
 module.exports = router;

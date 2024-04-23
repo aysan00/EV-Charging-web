@@ -6,8 +6,14 @@ userSchema = new Schema( {
 	unique_id: Number,
 	email: String,
 	username: String,
+	veichleNumber: String,
+	batteryCapacity: String,
+	ageOfVeichle: Number,
+	veichleModelName: String,
+	driversId: String,
 	password: String,
 	passwordConf: String
+
 }),
 User = mongoose.model('User', userSchema);
 
