@@ -158,4 +158,8 @@ router.get('/station', function (req, res, next) {
 	res.render("station.ejs");
 });
 
+router.get('/slot', function (req, res, next) {
+	res.render("slot.ejs");
+});
+
 module.exports = router;
