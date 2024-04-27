@@ -4,16 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Availability Schedule</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <style>
   body {
     font-family: Arial, sans-serif;
     background-color: #f8f8f8;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
   }
   .container {
     max-width: 800px;
-    margin: 20px auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
@@ -51,12 +55,39 @@
     background-color: #ff6363; /* Red */
     color: #fff;
   }
+  #calendar-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  #calendar {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    z-index: 1000;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+  .dropdown-toggle {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
 <div class="container">
   <h2 style="text-align: center;">Availability Schedule</h2>
-  <div class="availability-grid">
+  <div id="calendar-wrapper">
+    <label for="calendar" class="dropdown-toggle">Select Date</label>
+    <input type="text" id="calendar">
+  </div>
+  <div class="availability-grid" id="availability-grid">
     <% for (let i = 0; i < 24; i++) { %>
       <% const isAvailable = Math.random() < 0.5; %>
       <a href="/slot-details" class="hour-slot <%= isAvailable ? 'available' : 'unavailable' %>">
@@ -65,5 +96,43 @@
     <% } %>
   </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  const availabilityGrid = document.getElementById('availability-grid');
+  const calendar = document.getElementById('calendar');
+
+  flatpickr("#calendar", {
+    dateFormat: "Y-m-d",
+    position: "below",
+    static: true,
+    theme: "light",
+    onChange: function(selectedDates, dateStr, instance) {
+      // Reload slots when a new date is selected
+      fetchAvailability(dateStr);
+    }
+  });
+
+  function fetchAvailability(date) {
+    // Simulate fetching availability for the selected date
+    // Replace this with your actual logic to fetch availability
+    const newSlotsHtml = `
+      <% for (let i = 0; i < 24; i++) { %>
+        <% const isAvailable = Math.random() < 0.5; %>
+        <a href="/slot-details" class="hour-slot <%= isAvailable ? 'available' : 'unavailable' %>">
+          <%= i.toString().padStart(2, '0') %>:00 - <%= (i + 1).toString().padStart(2, '0') %>:00
+        </a>
+      <% } %>
+    `;
+
+    availabilityGrid.innerHTML = newSlotsHtml;
+  }
+</script>
+<script>
+  // Hide the calendar initially
+  window.addEventListener('DOMContentLoaded', function() {
+    calendar.style.display = 'none';
+  });
+</script>
 </body>
 </html>

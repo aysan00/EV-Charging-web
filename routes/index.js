@@ -162,4 +162,8 @@ router.get('/slot', function (req, res, next) {
 	res.render("slot.ejs");
 });
 
+router.get('/settings', function (req, res, next) {
+	res.render("settings.ejs");
+});
+
 module.exports = router;
