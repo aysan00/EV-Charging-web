@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-image: url('https://evreporter.com/wp-content/uploads/2019/08/electric-car-2728131_960_720.png'); /* EV image URL */
+    background-size: cover;
+    background-position: center;
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white overlay */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  .container {
+    max-width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  h1 {
+    margin-bottom: 20px;
+  }
+  .payment-details {
+    margin-bottom: 20px;
+  }
+  .payment-details label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .payment-details input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .confirm-payment-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  .confirm-payment-btn:hover {
+    background-color: #0056b3;
+  }
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 99999;
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="overlay" id="overlay">
+  <div class="container">
+    <h1>Payment Successful</h1>
+    <p>Slot Booked!</p>
+  </div>
+</div>
+
+<div class="container">
+  <h1>Make Payment</h1>
+  <div class="payment-details">
+    <label for="amount">Amount (INR):</label>
+    <div>₹120</div>
+  </div>
+  <div class="payment-details">
+    <label for="upi-id">Enter UPI ID:</label>
+    <input type="text" id="upi-id" name="upi-id" placeholder="Enter your UPI ID">
+  </div>
+  <button class="confirm-payment-btn" onclick="makePayment()">Confirm Payment</button>
+</div>
+
+<div class="toast" id="toast">Payment Successful! Slot Booked!</div>
+
+<script>
+function makePayment() {
+  const upiId = document.getElementById('upi-id').value;
+  const amount = 120;
+  const paymentLink = `upi://pay?pa=ayushkumarsandil@oksbi&pn=Ayush%20Kumar&am=${amount}&cu=INR&tn=EV%20Charging%20Slot%20Booking&mc=123&aid=uGic6mV7wPb37BqbMn3&url=https://ev-charging-slot-booking.com/payment/callback`;
+  
+  // Simulate payment success
+  setTimeout(function() {
+    document.getElementById('overlay').style.display = 'flex';
+    document.getElementById('toast').style.display = 'block';
+    setTimeout(function() {
+      document.getElementById('overlay').style.display = 'none';
+      document.getElementById('toast').style.display = 'none';
+    }, 3000); // Hide toast after 3 seconds
+  }, 2000); // Show toast after 2 seconds
+}
+</script>
+
+</body>
+</html>
