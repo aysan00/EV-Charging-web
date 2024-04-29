@@ -8,7 +8,10 @@
     
     body {
       font-family: Arial, sans-serif;
-      background-color: #f8f8f8;
+      background-image: url('https://img.freepik.com/premium-photo/3d-fast-charge-neon-lithium-ion-battery-glowing-floor-with-lighting-symbol-digital-futuristic-flash-quick-recharging-power-source-energy-technology-concept-illustration-background_44651-607.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
     }
     .container {
       width: 80%;
@@ -16,13 +19,20 @@
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
+      
     }
     .card {
-      background-color: #fff;
+      background-color: #a4d1e2;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       padding: 20px;
-      width: calc(50% - 20px); /* Two cards per row */
+      /*width: calc(50% - 20px);  Two cards per row */
+      border: 5px solid;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 10px;
     }
     .detail {
       margin-bottom: 10px;
@@ -39,6 +49,10 @@
     }
     .map-link:hover {
       text-decoration: underline;
+    }
+    h1{
+      text-align: center;
+      background-color:powderblue;
     }
   </style>
 </head>
@@ -73,11 +87,16 @@
       </div>
       <div class="detail">
         <span class="detail-title">Address:</span>
-        <span>123 Charging Station St, City</span>
+        <span>Admin Office Chargin Point</span>
       </div>
       <div class="detail">
         <span class="detail-title">Contact Details:</span>
         <span>(123) 456-7890</span>
+      </div>
+      <div class="detail">
+        <a href="/map%>">
+        <span class="detail-title">Open in Map</span>
+        </a>
       </div>
       <div class="detail">
         <a href="/slot%>">

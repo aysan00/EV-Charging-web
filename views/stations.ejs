@@ -6,19 +6,30 @@
   <title>Charging Stations</title>
   <style>
     .station-box {
-      border: 1px solid #ccc;
+      border: 1px solid #212422;
+      background-color: bisque;
       border-radius: 5px;
       margin-bottom: 10px;
       padding: 10px;
     }
   </style>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        
+        background-color: cadetblue;
+        
+        
+        
+    }
+</style>
 </head>
 <body>
   <h1>Charging Stations</h1>
   <% const chargingStations = [
-    { name: 'Station A', distance: 2.5, areaName: 'Admin Office' },
-    { name: 'Station B', distance: 4.3, areaName: 'Shopping Complex' },
-    { name: 'Station C', distance: 1.8, areaName: 'Student Corner' },
+    { name: 'Admin Office', distance: 2.5, areaName: 'Admin Office' },
+    { name: 'AC Station', distance: 4.3, areaName: 'Shopping Complex' },
+    { name: 'DC Station', distance: 1.8, areaName: 'Student Corner' },
     { name: 'Station D', distance: 3.7, areaName: 'Mig' },
     { name: 'Station E', distance: 5.2, areaName: 'Thuvakudi' },
     { name: 'Station F', distance: 6.1, areaName: 'Amber Hostel' },
