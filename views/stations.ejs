@@ -4,51 +4,83 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Charging Stations</title>
+  <!-- Add Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
+    body{
+      background-color: rgb(60, 51, 70);
+    }
+    .station-container {
+      display: flex;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+    }
+    
     .station-box {
-      border: 1px solid #212422;
-      background-color: bisque;
+      border: 1px solid #ccc;
       border-radius: 5px;
-      margin-bottom: 10px;
+      border-width: medium;
+      border-color: black;
       padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: rgba(255,255,255,0.7);
+      background-blend-mode: lighten;
+      width: 500px; /* Adjust width as needed */
+      height: 200px; /* Adjust height as needed */
+      margin-bottom: 50px; 
     }
+    .station-icon {
+      margin-right: 5px;
+    }
+    p {
+  font-size: 18px;
+  }
+  h1 {
+    text-align: center;
+  }
   </style>
-  <style>
-    body {
-        font-family: Arial, sans-serif;
-        
-        background-color: cadetblue;
-        
-        
-        
-    }
-</style>
 </head>
 <body>
   <h1>Charging Stations</h1>
   <% const chargingStations = [
-    { name: 'Admin Office', distance: 2.5, areaName: 'Admin Office' },
-    { name: 'AC Station', distance: 4.3, areaName: 'Shopping Complex' },
-    { name: 'DC Station', distance: 1.8, areaName: 'Student Corner' },
-    { name: 'Station D', distance: 3.7, areaName: 'Mig' },
-    { name: 'Station E', distance: 5.2, areaName: 'Thuvakudi' },
-    { name: 'Station F', distance: 6.1, areaName: 'Amber Hostel' },
-    { name: 'Station G', distance: 2.9, areaName: 'Opal' },
-    { name: 'Station H', distance: 4.5, areaName: 'Temple' },
-    { name: 'Station I', distance: 3.3, areaName: 'Ceesat' },
-    { name: 'Station J', distance: 1.2, areaName: 'GJCH' }
+    { name: 'Station A', distance: 2.5, areaName: 'Admin Office', icon: 'fa-bolt', image: 'https://taskforce.nitt.edu/images/pic02.jpg' },
+    { name: 'Station B', distance: 4.3, areaName: 'Shopping Complex', icon: 'fa-bolt', image: 'https://www.nitt.edu/home/students/facilitiesnservices/sc/buhari.jpg' },
+    { name: 'Station C', distance: 1.8, areaName: 'Student Corner', icon: 'fa-bolt', image: 'https://feedsnitt.com/wp-content/uploads/2017/05/san-800x445.jpg' },
+    { name: 'Station D', distance: 3.7, areaName: 'Mig', icon: 'fa-bolt', image: 'https://qph.cf2.quoracdn.net/main-qimg-59638804de323535c01afa2cf6d6e5b6.webp' },
+    { name: 'Station E', distance: 5.2, areaName: 'Thuvakudi', icon: 'fa-bolt', image: 'https://www.tnurbantree.tn.gov.in/thuvakudi/wp-content/uploads/sites/73/2019/08/Bus-stand-1.jpg' },
+    { name: 'Station F', distance: 6.1, areaName: 'Amber Hostel', icon: 'fa-bolt', image: 'https://www.nitt.edu/home/students/facilitiesnservices/hostelsnmess/constructions/amber-a-may2011.jpg' },
+    { name: 'Station G', distance: 2.9, areaName: 'Opal', icon: 'fa-bolt', image: 'https://www.nitt.edu/www/uploads/1279_jade-.jpg' },
+    { name: 'Station H', distance: 4.5, areaName: 'Temple', icon: 'fa-bolt', image: 'https://www.nitt.edu/www/uploads/127_temple4.jpg' },
+    { name: 'Station I', distance: 3.3, areaName: 'Ceesat', icon: 'fa-bolt', image: 'https://www.nitt.edu/home/students/facilitiesnservices/hostelsnmess/constructions/Sports-Ground-July-2014.JPG' },
+    { name: 'Station J', distance: 1.2, areaName: 'GJCH', icon: 'fa-bolt', image: 'https://www.nitt.edu/home/students/facilitiesnservices/hostelsnmess/constructions/Convection-Hall-October2018.JPG' }
   ]; %>
-  <% chargingStations.forEach(station => { %>
-    <div class="station-box">
-        <a href="/station%>">
-          <h2><%= station.name %></h2>
-        </a>
-        <p><strong>Distance:</strong> <%= station.distance %> miles</p>
-        <p><strong>Area:</strong> <%= station.areaName %></p>
-        <a href="/map%>">
+  <div class="station-container">
+    <% chargingStations.forEach((station, index) => { %>
+      <div class="station-box" style="background-image: url('<%= station.image %>');">
+          <a href="/station">
+            <h2><i class="fas <%= station.icon %> station-icon"></i><%= station.name %></h2>
+          </a>
+          <p><strong>Distance:</strong> <%= station.distance %> miles</p>
+          <p><strong>Area:</strong> <%= station.areaName %></p>
+          <a href="/map%>">
             <h3>Open in Map</h3>
           </a>
-      </div>
-  <% }) %>
+        </div>
+      <% if ((index + 1) % 2 === 0) { %>
+        </div><div class="station-container">
+      <% } %>
+    <% }) %>
+  </div>
 </body>
 </html>
+
+
+

@@ -170,4 +170,8 @@ router.get('/slot-details', function (req, res, next) {
 	res.render("slot-details.ejs");
 });
 
+router.get('/my-bookings', function (req, res, next) {
+	res.render("my-bookings.ejs");
+});
+
 module.exports = router;
